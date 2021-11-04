@@ -1,19 +1,6 @@
 version: "3"
 
 services:
-  app:
-    container_name: appBackend
-    build:
-      context: ../
-    ports:
-      - "8080:3000"
-    links:
-      - mysql-dev
-    depends_on:
-      - mysql-dev
-    restart: always
-    command: npm start
-
   mysql-dev:
     container_name: mysqlBackend
     build: ./sql/
