@@ -1,0 +1,22 @@
+<div class="row mt-5">
+
+    <div *ngIf="paisesNoGuardados.length > 0" class="row m-4 alert alert-danger" role="alert">
+        <h5>Estos países no se han podido guardar :</h5>
+        <div class="col-4" *ngFor="let pais of paisesNoGuardados; let i = index">
+            {{ pais.nombrePais }} {{ pais.nombreCapital }}
+
+        </div>
+    </div>
+    <div *ngIf="ok" class="row m-4 alert alert-success" role="alert">
+        Paises guardados
+    </div>
+
+    <div class="col-lg-2 col-md-12">
+        <app-filtro (cargarPaises)="cargarPaises()" (ordenarPais)="ordenarPais()" (ordenarCiudad)="ordenarCiudad()"
+            (guardarTabla)=" guardarTabla()">
+        </app-filtro>
+    </div>
+    <div class="col-lg-10 col-md-12">
+        <app-tabla [paisesMostrar]="paisesMostrar"></app-tabla>
+    </div>
+</div>
